@@ -109,4 +109,9 @@ describe("#toArchitectural", function() {
 	it("converts Math.LN2 to \"0' 8 1/4\\\"\"", function() {
 		toArchitectural(Math.LN2, "feet", "1/4").should.equal("0' 8 1/4\"");
 	});
+
+	it("converts \\\"11/32\"\\\" (less precision) to 11/32\"\"", function() {
+		// 11/32" at a 1/10,0000 precision
+		toArchitectural(0.3437, "inches", "1/32").should.equal("0' 0 11/32\"");
+	});
 });
